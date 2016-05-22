@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- /** * @copyright Copyright © 2016 - All rights reserved. * @license GNU General Public License v2.0 * @generator http://xdsoft/joomla-module-generator/ */ -->
+<extension type="module" method="upgrade" client="site">
+  <name>MOD_PM_ARTICLE_IMAGE_SPOT</name>
+  <creationDate>May 2016</creationDate>
+  <author>Ponto Mega</author>
+  <authorEmail>contato@pontomega.com.br</authorEmail>
+  <authorUrl>http://www.pontomega.com.br</authorUrl>
+  <copyright>Copyright © 2016 - All rights reserved.</copyright>
+  <license>GNU General Public License v2.0</license>
+  <version>1.0.0</version>
+  <description>MOD_PM_ARTICLE_IMAGE_SPOT_DESCRIPTION</description>
+  <files>
+    <filename module="mod_pm_article_image_spot">mod_pm_article_image_spot.php</filename>
+    <filename>mod_pm_article_image_spot.xml</filename>
+    <filename>index.html</filename>
+    <folder>language</folder>
+    <folder>tmpl</folder>
+    <folder>assets</folder>
+  </files>
+  <config>
+    <fields name="params">
+      <fieldset name="advanced">
+        <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+        <field name="moduleclass_sfx" type="textarea" rows="3" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+        <field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+          <option value="1">JGLOBAL_USE_GLOBAL</option>
+          <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+        </field>
+        <field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+        <field name="cachemode" type="hidden" default="static">
+          <option value="static"></option>
+        </field>
+      </fieldset>
+      <fieldset name="settings" label="MOD_SETTINGS" description="MOD_SETTINGS_FIELDSET_DESCRIPTION">
+        <field type="list" label="MOD_IMAGE_IN_THE_SPOT" name="image_in_the_spot" description="MOD_IMAGE_IN_THE_SPOT_DESCRIPTION" default="full_image" class="">
+          <option value="intro_image">MOD_INTRO_IMAGE</option>
+          <option value="full_image">MOD_FULL_IMAGE</option>
+          <option value="custom_image">MOD_CUSTOM_IMAGE</option>
+        </field>
+        <field type="media" label="MOD_CUSTOM_IMAGE" name="custom_image" description="MOD_CUSTOM_IMAGE_DESCRIPTION" directory="" />
+        <field type="text" label="MOD_HEIGHT" name="height" description="MOD_HEIGHT_DESCRIPTION" />
+      </fieldset>
+    </fields>
+  </config>
+  <languages folder="language">
+    <language tag="en-GB">en-GB/en-GB.mod_pm_article_image_spot.sys.ini</language>
+    <language tag="en-GB">en-GB/en-GB.mod_pm_article_image_spot.ini</language>
+    <language tag="pt-BR">pt-BR/pt-BR.mod_pm_article_image_spot.sys.ini</language>
+    <language tag="pt-BR">pt-BR/pt-BR.mod_pm_article_image_spot.ini</language>
+  </languages>
+</extension>
