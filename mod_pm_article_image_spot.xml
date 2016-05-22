@@ -39,7 +39,7 @@
           <option value="custom_image">MOD_CUSTOM_IMAGE</option>
         </field>
         <field type="media" label="MOD_CUSTOM_IMAGE" name="custom_image" description="MOD_CUSTOM_IMAGE_DESCRIPTION" directory="" />
-        <field type="text" label="MOD_HEIGHT" name="height" description="MOD_HEIGHT_DESCRIPTION" />
+        <field type="text" label="MOD_HEIGHT" name="height" default="400px" description="MOD_HEIGHT_DESCRIPTION" />
       </fieldset>
     </fields>
   </config>
