@@ -8,7 +8,7 @@
     <authorUrl>http://www.pontomega.com.br</authorUrl>
     <copyright>Copyright © 2016 - All rights reserved.</copyright>
     <license>GNU General Public License v2.0</license>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <description>MOD_PM_ARTICLE_IMAGE_SPOT_DESCRIPTION</description>
     <files>
         <filename module="mod_pm_article_image_spot">mod_pm_article_image_spot.php</filename>
@@ -49,6 +49,7 @@
                     <option value="text_from_custom_field">FROM_CUSTOM_FIELD</option>
                 </field>
                 <field type="list" label="MOD_IMAGE_IN_THE_SPOT" name="image_in_the_spot" description="MOD_IMAGE_IN_THE_SPOT_DESCRIPTION" default="full_image" class="">
+                    <option value="none">JNONE</option>
                     <option value="intro_image">MOD_INTRO_IMAGE</option>
                     <option value="full_image">MOD_FULL_IMAGE</option>
                     <option value="custom_image">MOD_CUSTOM_IMAGE</option>
@@ -83,14 +84,20 @@
                 <field name="general_spacer" type="spacer" label="FOR_SPOT" class="label" />
                 <field type="text" label="MOD_HEIGHT" name="height" default="23.33vw" description="MOD_HEIGHT_DESCRIPTION" />
 
-                <field name="widthchoosen" type="text" default="1440" label="WIDTH_IMAGE" description="WIDTH_IMAGE_DESC" />
-                <field name="heightchoosen" type="text" default="900" label="HEIGHT_IMAGE" description="HEIGHT_IMAGE_DESC" />
+                <field name="widthchoosen" type="text" default="1200" label="WIDTH_IMAGE" description="WIDTH_IMAGE_DESC" />
+                <field name="heightchoosen" type="text" default="300" label="HEIGHT_IMAGE" description="HEIGHT_IMAGE_DESC" />
 
                 <field name="max_limit" type="text" default="300" label="TEXT_LIMIT" description="TEXT_LIMIT" />
                 <field name="strip_tags" type="list" default="1" label="STRIP_TAGS" description="STRIP_TAGS_DESC">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
+                 <field name="text_background" type="color" default="#000" label="BACKGROUND_TEXT_COLOR" description="BACKGROUND_TEXT_COLOR_DESC" />
+                 <field name="background_opacity" type="text" default="0.5" label="BACKGROUND_TEXT_COLOR_OPACITY" description="BACKGROUND_TEXT_COLOR_OPACITY_DESC" />
+
+                 <field name="text_color" type="color" default="#fff" label="TEXT_COLOR" description="TEXT_COLOR_DESC" />
+                <field name="text_opacity" type="text" default="0.5" label="TEXT_COLOR_OPACITY" description="TEXT_COLOR_OPACITY_DESC" />
+
                 <field name="background_or_src" type="list" default="src" label="BACKGROUND_OR_SRC" description="BACKGROUND_OR_SRC">
                     <option value="background">BACKGROUND</option>
                     <option value="src">SRC</option>
