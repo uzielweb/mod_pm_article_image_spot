@@ -13,7 +13,7 @@ $id = $input->getInt('id');
 // in an article view, this will be the cat id.
 $categoryid = $input->getInt('catid');
 
-$article = JControllerLegacy::getInstance('Content')->getModel('Article')->getItem();
+
 
 
 $tpath = JURI::base(true) . '/templates/' . $app->getTemplate() . '/';
@@ -24,52 +24,6 @@ $cropchoosen = ($params->get('widthchoosen') / $params->get('heightchoosen')) . 
 $thumbsnippet = 'modules/mod_' . $module->name . '/assets/smart/image.php?width=' . $widthchoosen . '&height=' . $heightchoosen . '&cropratio=' . $cropchoosen . '&image=' . JURI::root();
  $height = $params->get('height');
 $maxLimit = $params->get('max_limit');
-
-//HEX to RGBA
-function hex2rgba($color, $opacity = false) {
-
-    $default = 'rgb(0,0,0)';
-
-    //Return default if no color provided
-    if(empty($color))
-                    return $default;
-
-    //Sanitize $color if "#" is provided
-                if ($color[0] == '#' ) {
-                	$color = substr( $color, 1 );
-                }
-
-                //Check if color has 6 or 3 characters and get values
-                if (strlen($color) == 6) {
-                                $hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
-                } elseif ( strlen( $color ) == 3 ) {
-                                $hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
-                } else {
-                                return $default;
-                }
-
-                //Convert hexadec to rgb
-                $rgb =  array_map('hexdec', $hex);
-
-                //Check if opacity is set(rgba or rgb)
-                if($opacity){
-                	if(abs($opacity) > 1)
-                		$opacity = 1.0;
-                	$output = 'rgba('.implode(",",$rgb).','.$opacity.')';
-                } else {
-                	$output = 'rgb('.implode(",",$rgb).')';
-                }
-
-                //Return rgb(a) color string
-                return $output;
-}
-$color = $params->get('text_background');
-$rgb = hex2rgba($color);
-$rgba = hex2rgba($color, $params->get('background_opacity'));
-$text_color = $params->get('text_color');
-$rgb_text = hex2rgba($text_color);
-$rgba_text = hex2rgba($text_color, $params->get('text_opacity'));
-//end of HEX to RGBA
 
 $is_category = 'false';
 if ($input->getCmd('option') == 'com_content' && ($input->getCmd('view') == 'categories' or $input->getCmd('view') == 'category' or $input->getCmd('view') == 'featured' or $input->getCmd('view') == 'archive'))
@@ -99,6 +53,7 @@ if ($input->getCmd('option') == 'com_content' && ($input->getCmd('view') == 'cat
 }
 if ($input->getCmd('option') == 'com_content' && $input->getCmd('view') == 'article')
 {
+		$article = JControllerLegacy::getInstance('Content')->getModel('Article')->getItem($id);
 		$article_id = $article->id;
 		$catid = $article->catid;
 		$images = $article->images;
@@ -226,7 +181,7 @@ if (($params->get('background_or_src') == 'src') and ($choosed_image == '')){
 ?>
 <div id="spot_<?php echo $module->id; ?>" class="image_spot" style="height: <?php echo $height; ?>;<?php echo $background_spot; ?>">
      <?php if (($params->get('show_title') != 'none') or ($params->get('show_text') != 'none') or ((($params->get('show_cat_title') == '1') and ($is_category == 'true')) or (($params->get('show_cat_text') == '1') and ($is_category == 'true')))) : ?>
-     <div class="info_spot" style="background-color: <?php echo $rgba;?>; color: <?php echo $rgba_text;?>">
+     <div class="info_spot" id="info_spot_<?php echo $module->id; ?>">
     <?php if (($params->get('show_title') != 'none') and ($is_category == 'false')) : ?>
      <div class="title_spot article_spot_title">
        <h4><?php echo $title; ?></h4>
