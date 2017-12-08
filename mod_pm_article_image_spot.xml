@@ -92,12 +92,7 @@
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
-                 <field name="text_background" type="color" default="#000" label="BACKGROUND_TEXT_COLOR" description="BACKGROUND_TEXT_COLOR_DESC" />
-                 <field name="background_opacity" type="text" default="0.5" label="BACKGROUND_TEXT_COLOR_OPACITY" description="BACKGROUND_TEXT_COLOR_OPACITY_DESC" />
-
-                 <field name="text_color" type="color" default="#fff" label="TEXT_COLOR" description="TEXT_COLOR_DESC" />
-                <field name="text_opacity" type="text" default="0.5" label="TEXT_COLOR_OPACITY" description="TEXT_COLOR_OPACITY_DESC" />
-
+                 
                 <field name="background_or_src" type="list" default="src" label="BACKGROUND_OR_SRC" description="BACKGROUND_OR_SRC">
                     <option value="background">BACKGROUND</option>
                     <option value="src">SRC</option>
