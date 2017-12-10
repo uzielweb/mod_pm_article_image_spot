@@ -24,7 +24,7 @@ $maxLimit = $params->get('max_limit');
 $is_category = 'false';
 if ($option != 'com_content'){
 $choosed_image = $params->get('custom_image');
-if ($choosed_image){
+if ($menu_spot_image){
 $choosed_image = $menu_spot_image;
 }
 
