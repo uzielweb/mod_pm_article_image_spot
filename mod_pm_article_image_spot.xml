@@ -34,7 +34,12 @@
             </fieldset>
             <fieldset name="basic" label="MOD_SETTINGS" description="MOD_SETTINGS_FIELDSET_DESCRIPTION">
                 <field name="article_spacer" type="spacer" label="FOR_ARTICLES" class="label" />
+
                 <field name="show_in_articles" type="list" default="1" label="SHOW_IN_ARTICLES" description="SHOW_IN_ARTICLES_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="only_text_in_articles" type="list" default="0" label="ONLY_TEXT_IN_ARTICLES" description="ONLY_TEXT_IN_ARTICLES_DESC">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
@@ -42,11 +47,13 @@
                     <option value="">JNONE</option>
                     <option value="title_from_article">FROM_ARTICLE</option>
                     <option value="title_from_custom_field">FROM_CUSTOM_FIELD</option>
+                    <option value="title_from_page_title_in_articles">FROM_PAGE_TITLE</option>
                 </field>
                 <field name="show_text" type="list" default="none" label="SHOW_TEXT" description="SHOW_TEXT_DESC">
                     <option value="">JNONE</option>
                     <option value="text_from_article">FROM_ARTICLE</option>
                     <option value="text_from_custom_field">FROM_CUSTOM_FIELD</option>
+                    <option value="text_from_meta_description_in_articles">FROM_META_DESCRIPTION_IN_ARTICLES</option>
                 </field>
                 <field type="list" label="MOD_IMAGE_IN_THE_SPOT" name="image_in_the_spot" description="MOD_IMAGE_IN_THE_SPOT_DESCRIPTION" default="full_image" class="">
                     <option value="none">JNONE</option>
@@ -73,14 +80,44 @@
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
-                <field name="show_cat_title" type="list" default="1" label="SHOW_CAT_TITLE" description="SHOW_CAT_TITLE_DESC">
+                <field name="only_text_in_categories" type="list" default="0" label="ONLY_TEXT_IN_CATEGORIES" description="ONLY_TEXT_IN_CATEGORIES_DESC">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
-                <field name="show_cat_text" type="list" default="1" label="SHOW_CAT_TEXT" description="SHOW_CAT_TEXT_DESC">
+
+                <field name="show_cat_title" type="list" default="from_cat_title" label="SHOW_CAT_TITLE" description="SHOW_CAT_TITLE_DESC">
+                    <option value="none">JNONE</option>
+                    <option value="from_cat_title">FROM_CAT_TITLE</option>
+                    <option value="from_page_title_in_categories">FROM_PAGE_TITLE</option>
+                </field>
+                <field name="show_cat_text" type="list" default="from_cat_description" label="SHOW_CAT_TEXT" description="SHOW_CAT_TEXT_DESC">
+                    <option value="none">JNONE</option>
+                    <option value="from_cat_description">FROM_CAT_DESCRIPTION</option>
+                    <option value="from_page_description_in_categories">FROM_PAGE_DESCRIPTION</option>
+                </field>
+                <field name="for_menu_spacer" type="spacer" label="FOR_MENU_ITEMS" class="label" />
+                <field name="only_text_in_menuitems" type="list" default="0" label="ONLY_TEXT_IN_MENU_ITEMS" description="ONLY_TEXT_IN_MENU_ITEMS_DESC">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
+                 <field name="menu_item_title_origin" type="list" default="special_fields" label="MENU_ITEM_TITLE_ORIGIN" descriptoion="MENU_ITEM_TITLE_ORIGIN_DESC">
+                    <option value="special_fields">SPECIAL_FIELDS</option>
+                    <option value="menu_title">MENU_TITLE</option>
+                </field>
+                <field name="menu_item_text_origin" type="list" default="special_fields" label="MENU_ITEM_TEXT_ORIGIN" descriptoion="MENU_ITEM_TEXT_ORIGIN_DESC">
+                    <option value="special_fields">SPECIAL_FIELDS</option>
+                    <option value="menu_description">META_DESCRIPTION</option>
+                </field>
+
+                 <field name="force_in_articles" type="list" default="0" label="FORCE_IN_ARTICLES" description="FORCE_IN_ARTICLES">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="force_in_categories" type="list" default="0" label="FORCE_IN_CATEGORIES" description="FORCE_IN_CATEGORIES_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
                 <field name="general_spacer" type="spacer" label="FOR_SPOT" class="label" />
                 <field type="text" label="MOD_HEIGHT" name="height" default="23.33vw" description="MOD_HEIGHT_DESCRIPTION" />
 
@@ -92,10 +129,33 @@
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
-                 
+
                 <field name="background_or_src" type="list" default="src" label="BACKGROUND_OR_SRC" description="BACKGROUND_OR_SRC">
                     <option value="background">BACKGROUND</option>
                     <option value="src">SRC</option>
+                </field>
+
+                <field name="title_tag" type="list" default="h1" label="TITLE_TAG" description="TITLE_TAG_DESC">
+                    <option value="h1">H1</option>
+                    <option value="h2">H2</option>
+                    <option value="h3">H3</option>
+                    <option value="h4">H4</option>
+                    <option value="h5">H5</option>
+                    <option value="h6">H6</option>
+                    <option value="h6">DIV</option>
+                    <option value="h6">SPAN</option>
+                </field>
+
+                <field name="subtitle_tag" type="list" default="div" label="SUBTITLE_TAG" description="SUBTITLE_TAG_DESC">
+                    <option value="h6">DIV</option>
+                    <option value="h6">SPAN</option>
+                    <option value="h1">H1</option>
+                    <option value="h2">H2</option>
+                    <option value="h3">H3</option>
+                    <option value="h4">H4</option>
+                    <option value="h5">H5</option>
+                    <option value="h6">H6</option>
+
                 </field>
             </fieldset>
         </fields>
