@@ -1,29 +1,3 @@
-.src_image_spot img {
-		width: 100%;
-}
-
-.image_spot {
-		overflow: hidden;
-		width: 100%;
-		position: relative;
-}
-
-.info_spot{
-		padding: 15px;
-		display: block;
-		background: rgba(0, 0, 0, 0.3);
-}
-
-.title_spot,.text_spot {
-		display: block;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-}
-
-@media all and (max-width: 640px){
-		.image_spot {
-				height: auto !important;
-				-moz-box-sizing: border-box;
-				box-sizing: border-box;
-		}
+.filtered_tags_menu, .filtered_tags_menu li{
+	list-style: none;
 }

@@ -60,12 +60,11 @@ $choosed_image = $menu_spot_image;
 
 }
 
-
-if ($params->get('menu_item_title_origin') == 'menu_item_title'){
+if ($params->get('menu_item_title_origin') == 'special_fields'){
  $title = $menu_spot_title;
 }
 
-if ($params->get('menu_item_text_origin') == 'menu_item_subtitle'){
+if ($params->get('menu_item_text_origin') == 'special_fields'){
  $text = $menu_spot_text;
 }
 
