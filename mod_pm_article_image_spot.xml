@@ -8,7 +8,7 @@
     <authorUrl>http://www.pontomega.com.br</authorUrl>
     <copyright>Copyright © 2016 - All rights reserved.</copyright>
     <license>GNU General Public License v2.0</license>
-    <version>1.0.5</version>
+    <version>1.0.4</version>
     <description>MOD_PM_ARTICLE_IMAGE_SPOT_DESCRIPTION</description>
     <files>
         <filename module="mod_pm_article_image_spot">mod_pm_article_image_spot.php</filename>
